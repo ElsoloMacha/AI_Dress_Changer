@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['OUTPUT_FOLDER'] = 'output'
 
-
+#openai.api_key = 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"  # Replace with your key"
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(app.config['OUTPUT_FOLDER'], exist_ok=True)
