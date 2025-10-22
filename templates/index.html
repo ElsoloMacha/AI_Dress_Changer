@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Dress Changer 👗</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ AI Dress Changer</h1>
+
+        <form action="/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+            <label>Select your photo:</label>
+            <input type="file" name="image" accept="image/*" required>
+            
+            <label>Choose outfit style:</label>
+            <select name="style">
+                <option value="formal suit">Formal Suit</option>
+                <option value="casual outfit">Casual Outfit</option>
+                <option value="party dress">Party Dress</option>
+                <option value="traditional outfit">Traditional Outfit</option>
+                <option value="wedding dress">Wedding Dress</option>
+            </select>
+            <button type="submit">Change Outfit</button>
+        </form>
+
+        <div class="preview">
+            <img id="previewImage" src="" alt="">
+        </div>
+
+        <div class="loading" id="loading">Processing... 🪄</div>
+
+        {% if output_image %}
+        <div class="result">
+            <h2>Result:</h2>
+            <img src="{{ output_image }}" alt="Result">
+            <a href="{{ output_image }}" target="_blank" download class="download-btn">Download Image</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
